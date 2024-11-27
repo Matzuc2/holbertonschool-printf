@@ -11,8 +11,7 @@
 
 int print_int(va_list args)
 {
-	int count = 0;
-	int x = 1;
+	int count = 0, x = 1;
 	int res = va_arg(args, int), min = -2147483648;
 
 	if (res < 0)
@@ -46,15 +45,27 @@ int print_int(va_list args)
 			x /= 10;
 		}
 		if (x == 0)
-		{
 			break;
-		}
 	}
-		return (count);
+	return (count);
 }
 
-
-
+/**
+ * is_percent - Prints a percent sign to the output.
+ * @args: A variable argument list (va_list) from which an integer is consumed.
+ *
+ * Description: This function retrieves an integer from the variable argument
+ * list and prints a percent sign ('%') to the standard output. It returns
+ * 1 to indicate that the operation was successful.
+ *
+ * Return: Always returns 1.
+ */
+int is_percent(va_list args)
+{
+	(void)va_arg(args, int);
+	_putchar('%');
+	return (1);
+}
 /**
  * print_char - print character from args list
  * @args: va_list args
@@ -64,10 +75,6 @@ int print_char(va_list args)
 {
 	char c = va_arg(args, int);
 
-	if (c == '\0')
-	{
-		return (0);
-	}
 	_putchar(c);
 	return (1);
 }
@@ -96,7 +103,6 @@ int print_string(va_list args)
 	}
 	return (count);
 }
-
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
