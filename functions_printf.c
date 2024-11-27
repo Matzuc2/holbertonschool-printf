@@ -24,7 +24,7 @@ int print_int(va_list args)
 		else
 		res *= -1;
 	}
-	while ((res / (x * 10)) > 0)
+	while (x <= res)
 	{
 		x *= 10;
 		count++;
