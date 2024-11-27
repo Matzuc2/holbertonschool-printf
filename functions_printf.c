@@ -20,7 +20,7 @@ int print_int(va_list args)
 	{
 		_putchar('-');
 		if (res <= min)
-			res = min;
+			res = (min * -1) - 1;
 		else
 		res *= -1;
 	}
