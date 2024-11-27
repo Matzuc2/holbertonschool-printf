@@ -62,6 +62,10 @@ int print_char(va_list args)
 	{
 		return (0);
 	}
+	if (c == ' ')
+        {
+                return (0);
+        }
 	_putchar(c);
 	return (1);
 }
@@ -79,7 +83,7 @@ int print_string(va_list args)
 
 
 	str = va_arg(args, char*);
-	if (str == NULL)
+	if (str == NULL || str == '\0')
 	{
 		return (0);
 	}
