@@ -20,7 +20,7 @@ int print_int(va_list args)
 	{
 		_putchar('-');
 		if (res <= min)
-			res = (min * -1) - 1;
+			res = min;
 		else
 		res *= -1;
 	}
@@ -63,7 +63,7 @@ int print_char(va_list args)
 int print_string(va_list args)
 {
 	int i;
-	char *str = va_arg(args, char *);
+	char *str;
 	int count = 0;
 
 
@@ -74,7 +74,8 @@ int print_string(va_list args)
 	}
 	for (i = 0; str[i] != '\0'; i++)
 	{
-	count += _putchar(str[i]);
+	_putchar(str[i]);
+	count++;
 	}
 	return (count);
 }
