@@ -13,8 +13,7 @@ int print_int(va_list args)
 {
 	int count = 0;
 	int x = 1;
-	int res = va_arg(args, int);
-	int min = -2147483648;
+	int res = va_arg(args, int), min = -2147483648;
 
 	if (res < 0)
 	{
@@ -35,6 +34,7 @@ int print_int(va_list args)
 		x *= 10;
 		count++;
 	}
+	count++;
 	while ((res / x) > 0)
 	{
 		_putchar((res / x) + '0');
