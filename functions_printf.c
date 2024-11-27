@@ -19,10 +19,15 @@ int print_int(va_list args)
 	if (res < 0)
 	{
 		_putchar('-');
+		count++;
 		if (res <= min)
-			res = min;
+			res = (min * -1) - 1;
 		else
 		res *= -1;
+	}
+	if (res == 0)
+	{
+		return (1);
 	}
 	while (x <= res)
 	{
