@@ -27,9 +27,10 @@ int print_int(va_list args)
 	}
 	if (res == 0)
 	{
+		_putchar('0');
 		return (1);
 	}
-	while (res / (x * 10) > 0)
+	while ((res / (x * 10)) > 0)
 	{
 		x *= 10;
 		count++;
@@ -38,7 +39,7 @@ int print_int(va_list args)
 	{
 		_putchar((res / x) + '0');
 		res = res % x;
-		x = x / 10;
+		x /= 10;
 		while (res < x)
 		{
 			_putchar('0');
