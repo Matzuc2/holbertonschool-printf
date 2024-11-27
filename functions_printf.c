@@ -63,7 +63,7 @@ int print_char(va_list args)
 int print_string(va_list args)
 {
 	int i;
-	char *str;
+	char *str = va_arg(args, char *);
 	int count = 0;
 
 
@@ -74,8 +74,7 @@ int print_string(va_list args)
 	}
 	for (i = 0; str[i] != '\0'; i++)
 	{
-	_putchar(str[i]);
-	count++;
+	count += _putchar(str[i]);
 	}
 	return (count);
 }
