@@ -39,6 +39,11 @@ int print_int(va_list args)
 		_putchar((res / x) + '0');
 		res = res % x;
 		x = x / 10;
+		while (res < x)
+		{
+			_putchar('0');
+			x /= 10;
+		}
 		if (x == 0)
 		{
 			break;
@@ -59,10 +64,6 @@ int print_char(va_list args)
 	char c = va_arg(args, int);
 
 	if (c == '\0')
-	{
-		return (0);
-	}
-	if (c == ' ')
 	{
 		return (0);
 	}
