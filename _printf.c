@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 			}
 			else if ((which[j + 1].w) == NULL)
 			{
-				count += _putchar(format[i + 1]);
+				count += _putchar(format[i + 1] && format[i++] != '\0');
 				i++;
 				break;
 			}
