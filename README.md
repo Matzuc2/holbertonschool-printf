@@ -1,20 +1,27 @@
 # holbertonschool-printf
 
 ## Project Description
+
 As part of our paired project, we need to recreate the `printf` function in C, including handling the main specifiers, designing a manpage to document its usage, and creating a flowchart illustrating its internal workings.
 
-## Description of `printf`
+## Description of `_printf`
+
 The `_printf()` function formats and prints a series of characters and values to the standard output stream `stdout`. Format specifications, beginning with a percent sign (`%`), determine the output format for any argument-list following the format-string.
 
 The format-string is read left to right. When the first format specification is found, the value of the first argument after the format-string is converted and printed according to the format specification. The second format specification causes the second argument after the format-string to be converted and printed, and so on through the end of the format-string. If there are more arguments than there are format specifications, the extra arguments are evaluated and ignored. The results are undefined if there are not enough arguments for all the format specifications.
 
 ## Usage
+
 Your code will be compiled this way:
 ```sh
 $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 ```
+- As a consequence, be careful not to push any c file containing a main function in the root directory of your project (you could have a test folder containing all your tests files including main functions)
+- Our main files will include your main header file (main.h): #include main.h
+- You might want to look at the gcc flag -Wno-format when testing with your _printf and the standard printf. 
 
 ## Requirements
+
 - GCC compiler
 - Ubuntu 20.04 LTS
 - Allowed editors: vi, vim, emacs
@@ -29,10 +36,40 @@ $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 - All your header files should be include guarded
 - Note that we will not provide the `_putchar` function for this project
 
-## Examples
-(capture d’écran et/ou code snippets)
+## More information
 
-## Testing
+### Authorized functions and macros
+
+- write (man 2 write)
+- malloc (man 3 malloc)
+- free (man 3 free)
+- va_start (man 3 va_start)
+- va_end (man 3 va_end)
+- va_copy (man 3 va_copy)
+- va_arg (man 3 va_arg)
+
+## Man page
+
+Man pages are simply manual pages created to help users understand how commands are used in Linux.
+
+### Using man page
+
+```sh
+man <what you want>
+```
+
+### Our man page
+
+![Our _printf man page](images/man_page.png)
+
+## Examples
+
+```C
+function test() {
+  _printf("notice the blank line before this function?");
+}
+```
 
 ## Author
+
 This project was completed by Mathieu and Jonas.
