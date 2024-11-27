@@ -29,13 +29,10 @@ int _printf(const char *format, ...)
 			{
 				count += which[j].f(args);
 				i++;
-				break;
 			}
 			else if ((which[j + 1].w) == NULL)
 			{
-				count +=  _putchar(format[i + 1]);
 				i++;
-				break;
 			}
 		}
 	}
