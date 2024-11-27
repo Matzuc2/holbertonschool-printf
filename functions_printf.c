@@ -63,9 +63,9 @@ int print_char(va_list args)
 		return (0);
 	}
 	if (c == ' ')
-        {
-                return (0);
-        }
+	{
+		return (0);
+	}
 	_putchar(c);
 	return (1);
 }
