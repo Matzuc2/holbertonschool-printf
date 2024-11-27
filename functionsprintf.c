@@ -1,6 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
-#include "variadic_functions.h"
+#include "main.h"
 #include <unistd.h>
 /**
 *print_int - print integer from args list
@@ -9,19 +9,41 @@
 int print_int(va_list args)
 {
 int count = 0;
+int x = 1;
 int res = va_arg(args, int);
-   if (res < 0)
-   {
-		_putchar('-');
-		res = -res;
-   }
-   if (res/10 > 0)
-   {
-		print_int(res/10);
-   }
-	_putchar(res%10 + '0');
-	return (count);
+int min = -2147483648;
+
+if (res < 0)
+{
+	_putchar('-');
+	if (res <= min)
+		res = min;
+	else
+	res *= -1;
 }
+while((res / (x*10)) > 0)
+{
+    x*= 10;
+    count++;
+}
+while ((res / x) > 0)
+{
+    _putchar((res / x) + '0');
+    res = res % x;
+    x = x/10;
+    if (x == 0)
+    {
+        break;
+    }
+}
+    return (count);
+}
+/*if(res > 10)
+{
+    _putchar((res / x )+ '0');
+    _putchar((res % x )+ '0');
+}*/
+
 /**
 *print_float - print float from args list
 *@args: va_list args
@@ -66,17 +88,4 @@ int print_string(va_list args)
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
-}
-int _pow_recursion(int x, int y)
-{
-
-	if (y < 0)
-	{
-		return (-1);
-	}
-	if (y == 0)
-	{
-		return (1);
-	}
-	return (x * _pow_recursion(x, y - 1));
 }
