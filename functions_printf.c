@@ -66,7 +66,7 @@ int print_int(va_list args)
 */
 int is_percent(va_list args)
 {
-	(void)va_arg(args, int);
+	(void)args;
 	_putchar('%');
 	return (1);
 }
