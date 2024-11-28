@@ -11,36 +11,51 @@
 
 int print_int(va_list args)
 {
-	int count = 0, x = 1;
-	int res = va_arg(args, int), min = -2147483648;
+    int count = 0, x = 1;
+    int res = va_arg(args, int);
 
-	if (res == 0)
-	{
-		_putchar('0');
-		return (1);
-	}
-	if (res < 0)
-	{
-		_putchar('-');
-		count++;
-		if (res <= min)
-			res = (res + 1) * -1;
-		else
-		res *= -1;
-	}
-	while ((res / (x * 10)) > 0)
-	{
-		x *= 10;
-	}
-	while (x > 0)
-	{
-		_putchar((res / x) + '0');
-		res %= x;
-		x /= 10;
-		count++;
-	}
-	return (count);
+    // Cas particulier pour 0
+    if (res == 0)
+    {
+        _putchar('0');
+        return (1);
+    }
+
+    // Gestion des nombres négatifs
+    if (res < 0)
+    {
+        _putchar('-');
+        count++;
+        if (res == -2147483648) // Cas spécial INT_MIN
+        {
+            _putchar('2'); // Affiche le premier chiffre de INT_MIN
+            res = 147483648; // Reste du nombre à traiter
+            count++;
+        }
+        else
+        {
+            res = -res; // Conversion normale pour les autres nombres négatifs
+        }
+    }
+
+    // Calcul du facteur multiplicatif (x = 10^n, où n est le nombre de chiffres - 1)
+    while ((res / (x * 10)) > 0)
+    {
+        x *= 10;
+    }
+
+    // Affichage des chiffres un par un
+    while (x > 0)
+    {
+        _putchar((res / x) + '0'); // Affiche le chiffre courant
+        res %= x;                  // Reste à traiter
+        x /= 10;                   // Réduit le facteur
+        count++;
+    }
+
+    return (count); // Retourne le nombre total de caractères affichés
 }
+
 
 /**
  * is_percent - Prints a percent sign to the output.
