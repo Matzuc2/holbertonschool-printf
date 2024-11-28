@@ -12,26 +12,37 @@
 int print_int(va_list args)
 {
 	int count = 0, x = 1;
-	int res = va_arg(args, int), min = -2147483648;
+
+	int res = va_arg(args, int);
 
 	if (res == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
+
 	if (res < 0)
 	{
 		_putchar('-');
 		count++;
-		if (res <= min)
-			res = (res + 1) * -1;
+		if (res == -2147483648)
+		{
+			_putchar('2');
+			res = 147483648;
+			count++;
+		}
 		else
-		res *= -1;
+		{
+			res = -res;
+		}
 	}
+
 	while ((res / (x * 10)) > 0)
 	{
 		x *= 10;
 	}
+
+
 	while (x > 0)
 	{
 		_putchar((res / x) + '0');
@@ -42,16 +53,17 @@ int print_int(va_list args)
 	return (count);
 }
 
+
 /**
- * is_percent - Prints a percent sign to the output.
- * @args: A variable argument list (va_list) from which an integer is consumed.
- *
- * Description: This function retrieves an integer from the variable argument
- * list and prints a percent sign ('%') to the standard output. It returns
- * 1 to indicate that the operation was successful.
- *
- * Return: Always returns 1.
- */
+* is_percent - Prints a percent sign to the output.
+* @args: A variable argument list (va_list) from which an integer is consumed.
+*
+* Description: This function retrieves an integer from the variable argument
+* list and prints a percent sign ('%') to the standard output. It returns
+* 1 to indicate that the operation was successful.
+*
+* Return: Always returns 1.
+*/
 int is_percent(va_list args)
 {
 	(void)va_arg(args, int);
@@ -59,10 +71,10 @@ int is_percent(va_list args)
 	return (1);
 }
 /**
- * print_char - print character from args list
- * @args: va_list args
- * Return: the number of characters printed
- */
+* print_char - print character from args list
+* @args: va_list args
+* Return: the number of characters printed
+*/
 int print_char(va_list args)
 {
 	char c = va_arg(args, int);
@@ -72,14 +84,16 @@ int print_char(va_list args)
 }
 
 /**
- * print_string - print string from args list
- * @args: va_list args
- * Return: the number of characters printed
- */
+* print_string - print string from args list
+* @args: va_list args
+* Return: the number of characters printed
+*/
 int print_string(va_list args)
 {
 	int i;
+
 	char *str;
+
 	int count = 0;
 
 
@@ -96,12 +110,12 @@ int print_string(va_list args)
 	return (count);
 }
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
+* _putchar - writes the character c to stdout
+* @c: The character to print
+*
+* Return: On success 1.
+* On error, -1 is returned, and errno is set appropriately.
+*/
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
