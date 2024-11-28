@@ -91,11 +91,8 @@ int print_char(va_list args)
 int print_string(va_list args)
 {
 	int i;
-
 	char *str;
-
 	int count = 0;
-
 
 	str = va_arg(args, char*);
 	if (str == NULL)
