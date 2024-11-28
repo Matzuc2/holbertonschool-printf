@@ -12,7 +12,6 @@
 int print_int(va_list args)
 {
 	int count = 0, x = 1;
-
 	int res = va_arg(args, int);
 
 	if (res == 0)
@@ -37,7 +36,7 @@ int print_int(va_list args)
 		}
 	}
 
-	while ((res / (x * 10)) > 0)
+	while ((res / x) >= 10)
 	{
 		x *= 10;
 	}
