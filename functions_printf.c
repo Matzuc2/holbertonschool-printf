@@ -14,38 +14,30 @@ int print_int(va_list args)
 	int count = 0, x = 1;
 	int res = va_arg(args, int), min = -2147483648;
 
-	if (res < 0)
-	{
-		_putchar('-');
-		count++;
-		if (res <= min)
-			res = (min * -1) - 1;
-		else
-		res *= -1;
-	}
 	if (res == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
+	if (res < 0)
+	{
+		_putchar('-');
+		count++;
+		if (res <= min)
+			res = (res + 1) * -1;
+		else
+		res *= -1;
+	}
 	while ((res / (x * 10)) > 0)
 	{
 		x *= 10;
-		count++;
 	}
-	count++;
-	while ((res / x) > 0)
+	while (x > 0)
 	{
 		_putchar((res / x) + '0');
-		res = res % x;
+		res %= x;
 		x /= 10;
-		while (res < x)
-		{
-			_putchar('0');
-			x /= 10;
-		}
-		if (x == 0)
-			break;
+		count++;
 	}
 	return (count);
 }
@@ -73,8 +65,10 @@ int is_percent(va_list args)
  */
 int print_char(va_list args)
 {
-	char c = va_arg(args, int);
+	int c = va_arg(args, int);
 
+	if (c == '\0')
+		return (0);
 	_putchar(c);
 	return (1);
 }
