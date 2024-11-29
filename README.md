@@ -62,12 +62,23 @@ man <what you want>
 
 ![Our _printf man page](images/man_page.png)
 
+## Flowchart
+
 ## Examples
 
 ```C
 function test() {
-  _printf("notice the blank line before this function?");
+  _printf("_printf("Hello %s! You are %d years old.", "Bobby", 35);
+");
 }
+```
+
+Output:
+```C
+Hello Bobby! You are 35 years old.
+```
+```C
+return 28;
 ```
 
 ## Author
