@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	which_s which[] = {{"d", print_int}, {"c", print_char}, {"i", print_int},
-	{"s", print_string}, {"%", is_percent}, {"\0", NULL}};
+	{"s", print_string}, {"%", is_percent}, {NULL, NULL}};
 	unsigned int i = 0, j = 0, count = 0;
 
 	va_start(args, format);
@@ -34,11 +34,10 @@ int _printf(const char *format, ...)
 				i++;
 				break;
 			}
-			else if (*(which[j + 1].w) == '\0')
+			else if ((which[j + 1].w) == NULL)
 			{
 				count += _putchar(format[i]) + _putchar(format[i + 1]);
 				i++;
-				break;
 			}
 		}
 	}
