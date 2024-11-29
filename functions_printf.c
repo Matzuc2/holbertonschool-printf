@@ -12,7 +12,6 @@
 int print_int(va_list args)
 {
 	int count = 0, x = 1;
-
 	int res = va_arg(args, int);
 
 	if (res == 0)
@@ -37,7 +36,7 @@ int print_int(va_list args)
 		}
 	}
 
-	while ((res / (x * 10)) > 0)
+	while ((res / x) >= 10)
 	{
 		x *= 10;
 	}
@@ -66,7 +65,7 @@ int print_int(va_list args)
 */
 int is_percent(va_list args)
 {
-	(void)va_arg(args, int);
+	(void)args;
 	_putchar('%');
 	return (1);
 }
@@ -77,7 +76,7 @@ int is_percent(va_list args)
 */
 int print_char(va_list args)
 {
-	int c = va_arg(args, int);
+	char c = va_arg(args, int);
 
 	_putchar(c);
 	return (1);
@@ -91,16 +90,13 @@ int print_char(va_list args)
 int print_string(va_list args)
 {
 	int i;
-
 	char *str;
-
 	int count = 0;
-
 
 	str = va_arg(args, char*);
 	if (str == NULL)
 	{
-		return (0);
+		str = "(null)";
 	}
 	for (i = 0; str[i] != '\0'; i++)
 	{
