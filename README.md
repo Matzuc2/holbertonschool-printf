@@ -93,7 +93,13 @@ This project was completed by Mathieu and Jonas.
 
 ----------
 
-<a href="https://www.linkedin.com/in/jonas-jungling">
-  <img src="/images/linkedin.png" alt="Linkedin" width="50" height="50">
-</a>
-
+<div style="display: flex; align-items: center; gap: 10px;">
+  <a href="https://www.linkedin.com/in/jonas-jungling">
+    <img src="./images/linkedin.png" alt="Linkedin" width="50" height="50">
+  </a>
+  <span>Jonas Jungling</span>
+  <a href="https://www.linkedin.com/in/mathieu-zucalli">
+    <img src="./images/linkedin.png" alt="Linkedin" width="50" height="50">
+  </a>
+  <span>Mathieu Zucalli</span>
+</div>
