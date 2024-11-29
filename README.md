@@ -15,12 +15,12 @@ The format-string is read left to right. When the first format specification is 
 Your code will be compiled this way:
 
 ```sh
-$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 ```
 
 - As a consequence, be careful not to push any c file containing a main function in the root directory of your project (you could have a test folder containing all your tests files including main functions)
 - Our main files will include your main header file (main.h): #include main.h
-- You might want to look at the gcc flag -Wno-format when testing with your _printf and the standard printf. 
+- You might want to look at the gcc flag -Wno-format when testing with your _printf and the standard printf.
 
 ## Requirements
 
@@ -97,9 +97,9 @@ This project was completed by Mathieu and Jonas.
   <a href="https://www.linkedin.com/in/jonas-jungling">
     <img src="./images/linkedin.png" alt="Linkedin" width="50" height="50">
   </a>
-  <span>Jonas Jungling</span>
+  <span style="margin-left: 10px; margin-right: 20px;">Jonas Jungling</span>
   <a href="https://www.linkedin.com/in/mathieu-zucalli">
     <img src="./images/linkedin.png" alt="Linkedin" width="50" height="50">
   </a>
-  <span>Mathieu Zucalli</span>
+  <span style="margin-left: 10px; margin-right: 20px;">Mathieu Zucalli</span>
 </div>
