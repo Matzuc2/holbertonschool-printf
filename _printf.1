@@ -1,0 +1,74 @@
+.TH _PRINTF 1 "26 Nov 2024" _printf\-0.1
+.SH NAME
+_printf
+.SH SYNOPSIS
+#include <stdarg.h>
+
+int _printf(const char *format, ...);
+.SH DESCRIPTION
+Writes the C string pointed by format to the standard output (stdout). If format includes format specifiers (subsequences beginning with %), the additional arguments following format are formatted and inserted in the resulting string replacing their respective specifiers.
+
+.TP
+.B Specifier
+.PP
+.TS
+tab(:);
+l l.
+d or i : Signed decimal integer
+u       : Unsigned decimal integer
+o       : Unsigned octal
+x       : Unsigned hexadecimal integer (lowercase)
+f       : Decimal floating point (lowercase)
+c       : Character
+s       : String of characters
+p       : Pointer address
+%%      : Writes a single '%' character
+.TE
+
+.SH RETURN VALUE
+
+Upon successful return, these functions return the number of bytes printed (excluding the null byte used to end output to strings).
+
+If an output error is encountered, a negative value is returned.
+
+.SH EXAMPLES
+The following examples demonstrate the use of \fB_printf\fP with different format specifiers:
+
+.TP
+.B Example 1: Using the \fB%d\fP specifier
+The \fB%d\fP specifier is used to output a signed decimal integer.
+
+.nf
+int main(void) {
+    int number = 42;
+    _printf("The number is: %d\\n", number);
+    return (0);
+}
+.fi
+
+This program outputs:
+.nf
+The number is: 42
+.fi
+
+.TP
+.B Example 2: Using the \fB%c\fP specifier
+The \fB%c\fP specifier is used to output a single character.
+
+.nf
+int main(void) {
+    char letter = 'A';
+    _printf("The letter is: %c\\n", letter);
+    return (0);
+}
+.fi
+
+This program outputs:
+.nf
+The letter is: A
+.fi
+
+.SH AUTHOR
+
+Mathieu Zucalli and Jonas Jungling
+

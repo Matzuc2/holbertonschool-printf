@@ -90,3 +90,10 @@ return 28;
 ## Author
 
 This project was completed by Mathieu and Jonas.
+
+----------
+
+<a href="https://www.linkedin.com/in/jonas-jungling">
+  <img src="/images/linkedin.png" alt="Linkedin" width="50" height="50">
+</a>
+
