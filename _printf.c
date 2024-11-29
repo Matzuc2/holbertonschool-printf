@@ -19,14 +19,14 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	if (format == NULL)
 		return (-1);
-	for (; format && format[i] != '\0'; i++)
+	while (format && format[i] != '\0')
 	{
 	j = 0;
 	if (format[i] == '%')
 	{
 		if (format[i + 1] == '\0')
 			return (-1);
-		for (; which[j].w != NULL; j++)
+		while (which[j].w != NULL)
 		{
 			if (format[i + 1] == *(which[j].w))
 			{
@@ -36,15 +36,16 @@ int _printf(const char *format, ...)
 			}
 			else if ((which[j + 1].w) == NULL)
 			{
-				count += _putchar(format[i]) + _putchar(format[i + 1]);
-				i++;
+				count += _putchar(format[i]);
 			}
+		j++;
 		}
 	}
 	else
 	{
 		count += _putchar(format[i]);
 	}
+	i++;
 	}
 	va_end(args);
 	return (count);
