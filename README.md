@@ -92,7 +92,7 @@ This project was completed by Mathieu and Jonas.
 
 ----------
 
-<div style="display: flex; align-items: center; gap: 10px;">
+<div style="display: flex; flex-direction: row;">
   <div style="display: flex; align-items: center;">
     <a href="https://www.linkedin.com/in/jonas-jungling">
       <img src="./images/linkedin.png" alt="Linkedin" width="50" height="50">
